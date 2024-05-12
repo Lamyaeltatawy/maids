@@ -1,0 +1,24 @@
+.example-container {
+  width: 190px;
+  height: 100vh;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  position: relative !important;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(238 231 231 / 16%);
+}
+.example-sidenav-content button {
+  position: absolute !important;
+  top: 20px !important;
+  background-color: #034f84;
+  color: white;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
