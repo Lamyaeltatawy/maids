@@ -1,8 +1,8 @@
-<app-header></app-header>
+<app-header (searchValueChanged)="onSearchValueChanged($event)"></app-header>
 <div class="container-fluid ">
   <section class="row">
-    <app-side-bar class="col-2"></app-side-bar>
-    <app-main class="col-9"></app-main>
+    <app-side-bar class="col-2 pr-0"></app-side-bar>
+    <app-main [searchKeyWord]="searchKeyWord" class="col-10 mt-1"></app-main>
   </section>
 </div>
 <app-footer></app-footer>

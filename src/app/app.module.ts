@@ -8,6 +8,9 @@ import { MainComponent } from './components/main/main.component';
 import { SharedModule } from 'src/shared/shared.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { BaseService } from './components/services/service.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, MainComponent],
@@ -18,8 +21,11 @@ import { MatCardModule } from '@angular/material/card';
     SharedModule,
     MatCardModule,
     MatButtonModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [BaseService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
