@@ -11,6 +11,5 @@ export class AppComponent {
   searchKeyWord?: string;
   onSearchValueChanged(value: string) {
     this.searchKeyWord = value;
-    console.log('apppppppppppppp', this.searchKeyWord);
   }
 }

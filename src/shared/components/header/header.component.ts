@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
   @Output('searchValueChanged') searchValueChanged = new EventEmitter<string>();
 
   public filterForm?: FormGroup;
-  // searchValueChanged: any;
   constructor(
     private _formBuilder: FormBuilder,
     public injector: Injector,
@@ -37,7 +36,4 @@ export class HeaderComponent implements OnInit {
       this.searchValueChanged = res;
     });
   }
-  // ngUnsubscribe(ngUnsubscribe: any): import('rxjs').OperatorFunction<any, any> {
-  //   throw new Error('Method not implemented.');
-  // }
 }
