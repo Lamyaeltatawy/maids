@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { BaseService } from '../services/service.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -10,9 +11,13 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class MainComponent implements OnInit, OnChanges {
   @Input('searchKeyWord') searchKeyWord: any = null;
   usersList: any[] = [];
+  body: any;
+  pathchanged: boolean = false;
   constructor(
     private service: BaseService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
   searchValue: string = '';
   form?: FormGroup;
@@ -23,7 +28,7 @@ export class MainComponent implements OnInit, OnChanges {
   }
   ngOnChanges(): void {
     if (this.searchKeyWord) {
-      this.getUsers();
+      this.body.search = this.searchKeyWord;
       console.log('channnnnged');
     }
   }
@@ -33,14 +38,17 @@ export class MainComponent implements OnInit, OnChanges {
     });
   }
   cardDetails(id: string) {
-    console.log('idddd', id);
+    this.pathchanged = true;
+    this.router.navigate(['user-details'], {
+      queryParams: {
+        id: id,
+      },
+    });
   }
-  getUsers() {
-    let body = this.form?.getRawValue();
-    // body.search = this.searchKeyWord;
-    console.log('body', body);
 
-    this.service.getAllUsers(body).subscribe((res: any) => {
+  getUsers() {
+    this.body = this.form?.getRawValue();
+    this.service.getAllUsers(this.body).subscribe((res: any) => {
       this.usersList = res.data;
       console.log(this.usersList);
     });

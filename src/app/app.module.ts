@@ -11,9 +11,10 @@ import { MatCardModule } from '@angular/material/card';
 import { BaseService } from './components/services/service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent],
+  declarations: [AppComponent, MainComponent, UserDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    AppRoutingModule,
   ],
   providers: [BaseService],
   bootstrap: [AppComponent],
